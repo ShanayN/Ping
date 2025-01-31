@@ -18,9 +18,7 @@ services:
       - ./src:/var/www/html:delegated
     depends_on:
       - php
-      - redis
       - mysql
-      - mailhog
     networks:
       - laravel
 
@@ -37,6 +35,8 @@ services:
       MYSQL_ROOT_PASSWORD: secret
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    volumes:
+      - ./mysql:/var/lib/mysql
     networks:
       - laravel
 
@@ -51,14 +51,6 @@ services:
       - "9000:9000"
     volumes:
       - ./src:/var/www/html:delegated
-    networks:
-      - laravel
-
-  redis:
-    image: redis:alpine
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
     networks:
       - laravel
 
@@ -102,13 +94,5 @@ services:
     depends_on:
       - mysql
     entrypoint: [ 'php', '/var/www/html/artisan' ]
-    networks:
-      - laravel
-
-  mailhog:
-    image: mailhog/mailhog:latest
-    ports:
-      - "1025:1025"
-      - "8025:8025"
     networks:
       - laravel
