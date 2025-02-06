@@ -12,21 +12,23 @@
 
             <!-- Sign-Up Buttons -->
             <div class="mt-6 space-y-3">
-                <button class="w-full py-2 border rounded-lg text-black bg-white hover:bg-gray-200 transition">
+                <white-button>
                     Sign up with Google
-                </button>
-                <button class="w-full py-2 border rounded-lg text-black bg-white hover:bg-gray-200 transition">
+                </white-button>
+                <white-button>
                     Sign up with Apple
-                </button>
+                </white-button>
+
                 <div class="flex items-center my-2">
                     <div class="flex-grow border-t border-gray-300"></div>
                     <span class="mx-3 text-gray-500">or</span>
                     <div class="flex-grow border-t border-gray-300"></div>
                 </div>
+                <!-- Register Button-->
                 <a href="/register">
-                    <button class="w-full py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition">
+                    <indigo-button>
                         Create Account
-                    </button>>
+                    </indigo-button>
                 </a>
                 <p class="text-xs text-gray-500 mt-2">
                     By signing up, you agree to the Terms of Service and Privacy Policy, including Cookie Use
@@ -36,9 +38,12 @@
             <!-- Sign-In Link -->
             <div class="mt-6">
                 <p class="text-white pb-3">Already have an account?</p>
-                <button class="w-full py-2 border border-blue-500 text-blue-500 font-semibold rounded-lg hover:bg-blue-100 transition">
-                    Sign in
-                </button>
+                <a href="/login">
+                    <indigo-button>
+                        Sign in
+                    </indigo-button>
+                </a>
+
             </div>
 
         </div>
@@ -46,7 +51,11 @@
 </template>
 
 <script>
-export default {
-    name: 'LandingPage',
-}
+    import WhiteButton from "./ui/WhiteButton.vue";
+    import IndigoButton from "./ui/IndigoButton.vue";
+
+    export default {
+        name: 'LandingPage',
+        components: {IndigoButton, WhiteButton},
+    }
 </script>
