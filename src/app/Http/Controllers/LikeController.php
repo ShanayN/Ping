@@ -30,7 +30,7 @@ class LikeController extends Controller
         }
 
         // Count number of likes
-        $likes_count = $tweet->likes()->count();
+        $likes_count = $tweet->refresh()->likes()->count();
 
         return response()->json([
             'liked_by_user' => $liked_by_user,

@@ -12,7 +12,7 @@ class SessionController extends Controller
         return view('auth.login');
     }
 
-    public function store()
+    public function store(): \Illuminate\Http\JsonResponse
     {
         $credentials = request()->validate([
             'email' => ['required', 'email'],
@@ -33,7 +33,7 @@ class SessionController extends Controller
             ], 200);
     }
 
-    public function destroy()
+    public function destroy(): \Illuminate\Http\JsonResponse
     {
         Auth::logout();
 
