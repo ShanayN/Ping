@@ -1,6 +1,6 @@
 <template>
     <div class="divide-y divide-gray-200">
-        <div v-for="tweet in tweets" :key="tweet.id" class="p-4 bg-white hover:bg-gray-50">
+        <div v-for="tweet in tweets" :key="tweet.id" class="p-4 hover:bg-gray-50">
             <div class="flex">
                  <div class="flex-shrink-0">
                      <img

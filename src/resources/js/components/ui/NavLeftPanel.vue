@@ -1,27 +1,30 @@
 <template>
-        <div class="fixed left-0 top-0 h-screen w-64 bg-white border-r border-gray-200">
+        <div class="fixed left-0 top-0 h-screen w-64 bg-gradient-to-r from-indigo-500">
             <div class="p-4">
                 <img class="mx-auto h-10 w-auto" src="/images/logo.png" alt="logo" />
-                <h1 class="text-xl font-bold text-violet-700">Ping</h1>
+                <h1 class="mt-4 text-2xl text-center font-bold text-gray-700">Ping</h1>
             </div>
             <!-- Navigation Links -->
         <nav class="mt-4">
-            <a href="/dashboard" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-violet-500">
-                <i class="bi bi-house"></i>
-                <span class="ml-2">Home</span>
-            </a>
+            <NavLink href="/dashboard" text="Home">
+                <template #icon>
+                    <i class="bi bi-house"></i>
+                </template>
+            </NavLink>
             <a :href="`/profile/${username}`" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-violet-500">
                 <i class="bi bi-person-circle"></i>
                 <span class="ml-2">Profile</span>
             </a>
+            <nav-link text="Explore" href="/explore">
+                <template #icon>
+                    <i class="bi bi-search"></i>
+                </template>
+            </nav-link>
 <!--            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-violet-500">-->
 <!--                <i class="bi bi-envelope"></i>-->
 <!--                <span class="ml-2">Messages</span>-->
 <!--            </a>-->
-            <a href="/explore" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-violet-500">
-                <i class="bi bi-search"></i>
-                <span class="ml-2">Explore</span>
-            </a>
+
 <!--            <a href="#" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-violet-500">-->
 <!--                <i class="bi bi-bell"></i>-->
 <!--                <span class="ml-2">Notifications</span>-->
@@ -52,9 +55,10 @@
 
 <script>
 import indigoButton from "./IndigoButton.vue";
+import NavLink from "../partials/NavLink.vue";
     export default {
         name: 'NavLeftPanel',
-        components: {indigoButton},
+        components: {indigoButton, NavLink},
         props: {
             username: String
         },

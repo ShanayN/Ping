@@ -1,5 +1,5 @@
 <template>
-    <div class="fixed right-0 top-0 h-screen w-80 bg-white border-l border-gray-200 overflow-y-auto p-4">
+    <div class="fixed right-0 top-0 h-screen w-80 bg-gradient-to-r from-indigo-50 to-indigo-500 overflow-y-auto p-4">
         <!-- Search Bar -->
         <div class="mb-4">
             <div class="relative">
